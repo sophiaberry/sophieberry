@@ -7,12 +7,18 @@
 
 		<script id="mobile-class">(function(){function s(){var m=window.innerWidth<770,d=document.documentElement;d.classList.toggle("mobile",m);if(document.body)document.body.classList.toggle("mobile",m)}s();document.addEventListener("DOMContentLoaded",s);window.addEventListener("resize",s)})();</script>
 		<style id="mobile-fixes">
+/* Cargo froze sizes from the window the site was saved in; make them fit any window */
+bodycopy { --resize-parent-width: 100% !important; }
+media-item { max-width: 100% !important; }
+.wallpaper { background: url("background.png") center / cover no-repeat !important; }
+.wallpaper::part(media-item) { visibility: hidden; }
+html { --viewport-height: 100vh !important; --min-viewport-height: 100vh !important; --visible-viewport-height: 100vh !important; }
+column-set column-unit { flex: 1 1 0 !important; width: auto !important; min-width: 0; }
+@media (min-width: 770px) { .pages [id] .page-layout { min-width: min(100%, 500px); } }
 @media (max-width: 769px) {
-	bodycopy { --resize-parent-width: 100% !important; }
 	column-set { justify-content: space-between !important; gap: 0.75rem; }
 	column-set column-unit { flex: 0 1 auto !important; width: auto !important; min-width: 0; margin-right: 0 !important; white-space: nowrap; }
 	column-set column-unit, column-set column-unit * { font-size: min(1em, 4.6vw) !important; }
-	media-item { max-width: 100% !important; }
 }
 </style>
 		<title>Matt Moffett — Sophie Berry</title>
